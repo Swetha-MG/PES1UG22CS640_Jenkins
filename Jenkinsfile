@@ -11,7 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pwd && ls -l'  // Debugging step
-                sh 'g++ hello.cpp -o output'  // Compile C++ program
+                sh 'ls -l main'  // Check if hello.cpp is inside 'main/'
+                sh 'g++ main/hello.cpp -o output'  // Compile from correct path
                 echo 'Build Stage Successful'
             }
         }
